@@ -1,0 +1,45 @@
+
+
+/* Put your custom styles here */
+
+.bg-deepocean
+{
+    background-color: #004E72 !important;
+}
+
+.bg-crete
+{
+    background-color: #004E72 !important;
+}
+
+#header-1 .main-nav
+{
+    background-color: #004E72;
+}
+
+.btn.btn-primary
+{
+    background: #3498DB;
+    box-shadow: 0 2px #16a085;
+}
+
+.btn.btn-primary:hover
+{
+    background: #004E72;
+}
+
+.content-3-6 .feature-box
+{
+    background: #3498DB;
+}
+
+.content-3-6 .feature-box:hover
+{
+    background-color: #004E72;
+}
+
+.padding-pagination
+{
+    margin-left: 90px;
+}
+
