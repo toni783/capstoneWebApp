@@ -9,12 +9,20 @@ const conf = require('../conf/gulp.conf');
 gulp.task('inject', inject);
 
 function inject() {
-  const injectStyles = gulp.src(conf.path.src('**/*.css'), {read: false});
+  const injectStyles = gulp.src([
+    conf.path.src('../bower_components/bootstrap/dist/css/bootstrap.min.css'),
+    conf.path.src('../bower_components/font-awesome/css/font-awesome.min.css'),
+    conf.path.src('../src/style/custom.css'),
+  ], {
+    read: false
+  });
   const injectScripts = gulp.src([
-    conf.path.tmp('**/*.js'),
-    `!${conf.path.tmp('**/*.spec.js')}`
-  ])
-  .pipe(angularFilesort()).on('error', conf.errorHandler('AngularFilesort'));
+
+      conf.path.tmp('**/*.js'),
+      conf.path.tmp('../bower_components/bootstrap/dist/js/bootstrap.min.js'),
+      `!${conf.path.tmp('**/*.spec.js')}`
+    ])
+    .pipe(angularFilesort()).on('error', conf.errorHandler('AngularFilesort'));
 
   const injectOptions = {
     ignorePath: [conf.paths.src, conf.paths.tmp],
