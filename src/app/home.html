@@ -1,1 +1,19 @@
-<h1>HOME</h1>
+<h1>{{$ctrl.hello}}</h1>
+
+<h1>{{$ctrl.cont}}</h1>
+
+
+<h1>{{$ctrl.oneUser.username}}</h1>
+
+<div ng-repeat="model in $ctrl.allUsers ">
+  {{model.username}}
+</div>
+
+
+
+<button type="button" class="btn btn-default" ng-click="$ctrl.increase()" >increase cont</button>
+<button type="button" class="btn btn-default" ng-click="$ctrl.deleteOne()" >Delete one user</button>
+
+
+<button type="button" class="btn btn-default" ng-click="$ctrl.saveUser()" >Save one user</button>
+<button type="button" class="btn btn-default" ng-click="$ctrl.updateUser()" >update one user</button>

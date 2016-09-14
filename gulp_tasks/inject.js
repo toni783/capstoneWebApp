@@ -18,6 +18,7 @@ function inject() {
   });
   const injectScripts = gulp.src([
 
+conf.path.tmp('../bower_components/angular-resource/angular-resource.min.js'),
       conf.path.tmp('**/*.js'),
       conf.path.tmp('../bower_components/bootstrap/dist/js/bootstrap.min.js'),
       `!${conf.path.tmp('**/*.spec.js')}`
