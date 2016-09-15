@@ -1,18 +1,13 @@
-function HomeController($resource) {
+function HomeController($resource, userFactory) {
   var ctrl = this;
 
   ctrl.hello = "hello content";
   ctrl.cont = 0;
 
-  var User = $resource("http://localhost:1337/" + "user/:id", null, {
-    'update': {
-      method: 'PUT'
-    }
-  });
-
+  var User = userFactory;
   ////GET ONE USER BY ID
   ctrl.oneUser = User.get({
-      id: 2
+      id: "57d9e6c1fb7462dc112138b8"
     })
     .$promise.then(
       function(response) {
@@ -30,7 +25,7 @@ function HomeController($resource) {
     });
   }
 
-////SAVE A SPECIFIC USER
+  ////SAVE A SPECIFIC USER
   ctrl.saveUser = function() {
     User.save({
       username: "gilbert5",
@@ -43,13 +38,17 @@ function HomeController($resource) {
     });
   }
 
-//UPDATE ONE USER BY HIS ID
-  ctrl.updateUser = function(){
-    var user = User.get({id:2});
+  //UPDATE ONE USER BY HIS ID
+  ctrl.updateUser = function() {
+    var user = User.get({
+      id: "57d9e6c1fb7462dc112138b8"
+    });
 
-    user.username="asdfaas";
+    user.username = "asdfaas";
 
-    User.update({id:2},user);
+    User.update({
+      id: user.id
+    }, user);
   }
 
   ///GET ALL USERS
@@ -63,18 +62,10 @@ function HomeController($resource) {
       }
     );
 
-
-
   ctrl.increase = function() {
     ctrl.cont++;
   }
-
-
-
-
 }
-
-
 
 angular
   .module('app')
